@@ -6,14 +6,28 @@ using namespace std;
 
 int main(){
 
-    ofstream arquivo;
+    ifstream arquivo;
     string linha;
+    int count=0;
 
-    arquivo.open("entrada.txt");
 
-    getline(arquivo,linha);
+    arquivo.open("entrada.txt", ios::out );
 
-    cout <<linha;
+        //Rodar enquanto todo o arquivo não for lido(eof).
+        while(!arquivo.eof()) {
+            
+            //Quebra cada linha do arq e armazena numa string.
+            getline(arquivo,linha);
+            
+            cout <<"line: " <<linha<<endl;
+            cout <<"cont: "<<count<<endl<<endl;
+            
+            count++;
 
+            //Quebarar a linha nessas variaveis: (p,i,s).
+        }
+    
+        
+    return 0;
 
 }
