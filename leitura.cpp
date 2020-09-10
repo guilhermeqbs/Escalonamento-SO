@@ -86,10 +86,10 @@ void quebrarLinha(string linha)
     {
         cout <<endl <<fragLinha <<endl;
         fragLinha = strtok(NULL," "); 
+        //converter valores em int
     }
 
 }
-
 
 char *convercaoStringParaChar(string linha)
 {
