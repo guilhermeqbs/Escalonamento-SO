@@ -72,7 +72,7 @@ void entradaArquivo(string nomeTXT){
     arquivo.close();
 }
 
-//nao pronto
+//Quebra as linha do arquivo em outras variaveis.
 void quebrarLinha(string linha)
 {
     char *linhaAux;
@@ -80,8 +80,8 @@ void quebrarLinha(string linha)
 
     linhaAux = convercaoStringParaChar(linha);
 
+    //Percorre toda a linha, ignora os espacos em branco e armazena os valores em outras variaveis.
     fragLinha = strtok(linhaAux," ");
-
     while(fragLinha != NULL)
     {
         cout <<endl <<fragLinha <<endl;
