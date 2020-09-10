@@ -75,12 +75,18 @@ void entradaArquivo(string nomeTXT){
 //nao pronto
 void quebrarLinha(string linha)
 {
-     char *linhaAux;
-     char *fragLinha;//*char para quebrar a linha 
+    char *linhaAux;
+    char *fragLinha;//*char para quebrar a linha 
 
-     linhaAux = convercaoStringParaChar(linha);
+    linhaAux = convercaoStringParaChar(linha);
 
-     
+    fragLinha = strtok(linhaAux," ");
+
+    while(fragLinha != NULL)
+    {
+        cout <<endl <<fragLinha <<endl;
+        fragLinha = strtok(NULL," "); 
+    }
 
 }
 
