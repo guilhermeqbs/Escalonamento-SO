@@ -2,20 +2,26 @@
 #include <fstream>
 #include <string>
 #include <locale.h>
+#include <stdio.h>
+#include <string.h>
+
+
+int p=-1, i=-1, s=-1;
 
 using namespace std;
 
+void quebrarLinha(string linha);//Quebra a linha do arquivo em interos
 void entradaArquivo(string nomeTXT);
 
 int main(){
     
     setlocale(LC_ALL,NULL);
-
+   
     string nomeTXT="entrada.txt";
 
     //Fazer o cin e cout bunitin.
-
-        entradaArquivo(nomeTXT);
+    
+    entradaArquivo(nomeTXT);
         
     return 0;
 
@@ -38,7 +44,7 @@ void entradaArquivo(string nomeTXT){
                 
                 //Quebra cada linha do arq e armazena numa string.
                 getline(arquivo,linha);
-                
+                // quebrarLinha();
                 cout <<"line: " <<linha<<endl;
                 cout <<"cont: " <<count<<endl<<endl;
                 
@@ -51,5 +57,13 @@ void entradaArquivo(string nomeTXT){
             cout <<"\nO arquivo não foi aberto corretamente.\n";
         }
 
+    
+}
 
+//nao pronto
+void quebrarLinha(string linha)
+{
+   char *pch, *str;
+    
+    pch = strtok(str," ");
 }
