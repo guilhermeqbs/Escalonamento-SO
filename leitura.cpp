@@ -5,8 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-
-int p=-1, i=-1, s=-1;
+int *p, *i, *s;
 
 using namespace std;
 
@@ -95,7 +94,3 @@ void quebrarLinha(string linha)
 
 }
 
-void FIFO(){
-
-
-}
