@@ -23,18 +23,7 @@ int main(){
     //Fazer o cin e cout bunitin.
     
     entradaArquivo(nomeTXT);
-        
-    
-    //char *pch, str;
-    //string aux="2 31 45";
-
-    //str[100] = aux;
-
-    //pch = strtok(str," ");
-       
-
-    
-
+  
     return 0;
 
 }
@@ -72,6 +61,16 @@ void entradaArquivo(string nomeTXT){
     arquivo.close();
 }
 
+char *convercaoStringParaChar(string linha)
+{
+    //As duas linhas de codigo criam uma copia da string em um *char; 
+    //Pois só é possivel conveter atraves do *char.
+    char * aux = (char*) calloc(linha.length()+1, sizeof(char*));
+    strcpy(aux, linha.c_str());
+
+    return aux;
+}
+
 //Quebra as linha do arquivo em outras variaveis.
 void quebrarLinha(string linha)
 {
@@ -85,18 +84,18 @@ void quebrarLinha(string linha)
     while(fragLinha != NULL)
     {
         cout <<endl <<fragLinha <<endl;
-        fragLinha = strtok(NULL," "); 
+        fragLinha = strtok(NULL," ");
+ 
         //converter valores em int
+        
+       // aux = atoi(fragLinha);
+
+
     }
 
 }
 
-char *convercaoStringParaChar(string linha)
-{
-    //As duas linhas de codigo criam uma copia da string em um *char; 
-    //Pois só é possivel conveter atraves do *char.
-    char * aux = (char*) calloc(linha.length()+1, sizeof(char*));
-    strcpy(aux, linha.c_str());
+void FIFO(){
 
-    return aux;
+
 }
