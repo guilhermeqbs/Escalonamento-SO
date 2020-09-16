@@ -1,1 +1,1 @@
-cout <<endl <<fragLinha <<endl;
+(y,s)
