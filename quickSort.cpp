@@ -9,6 +9,7 @@
 #include<unistd.h>
 
 using namespace std;
+
 void quickSort(int vetor[], int inicio, int fim, long long int &cont, long long int &mov)
 {
     int i, j, pivo, aux;
