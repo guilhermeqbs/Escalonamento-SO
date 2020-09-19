@@ -1,6 +1,8 @@
 #include <iostream>
 #include"quickSort.cpp"
 
+using namespace std;
+
 //Coloca os processos na ordem de chegada
 void ordenacaoProcessos(int *a, int *b){
     
@@ -22,12 +24,12 @@ void ordenacaoProcessos(int *a, int *b){
     //ordernar vetor obtendo a fila de exucacao na ordem correta
     quickSort(a,0,n,cont,mov);//(vetor,inicio,tamanho,cont,mov)
     
-    /*
+    
     //Imprimi vetor
      for(int i=0; i<n; i++)
      {
-         cout <<y[i]<<endl;
+         cout <<a[i]<<endl;
      }
-    */
+    
     //*Falta colocar o vetor 's' em ordem.
 }
