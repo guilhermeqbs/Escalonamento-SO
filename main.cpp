@@ -16,7 +16,7 @@ int main()
 
     //fifo(y,s);
     
-    sjf(y,s);
+    //sjf(y,s);
 
 
     return 0;
