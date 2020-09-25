@@ -5,6 +5,16 @@ using namespace std;
 
 void srt(int *y, int *s){
     
+    int wolf[4];
+
+    for(int p=0; p<4; p++)
+    {   
+        wolf[p] = y[p];
+    }
+
+
+
+
     int n = 4;
 
     int espera[n]; //vetor que armazena o valor de espera de cada processo
@@ -14,7 +24,7 @@ void srt(int *y, int *s){
     int auxS[n];
     //x = soma do valor s[] de todos *+ (primero y[0]).*
    
-    posicao = y[0];
+    posicao = wolf[0];
     //tempoRes = s[];
     
     int d=0 , menorS = 0;
@@ -25,7 +35,7 @@ void srt(int *y, int *s){
         {
             menorS = 0;//Reseta o menorS *
 
-            if(posicao == y[i]) //y={3,5,5,6}
+            if(posicao == wolf[i] //y={3,5,5,6}
             {   
                 for(int j=0; j<=i; j++)//comparar os valores de s dos processos na fila de espera
                 {
@@ -35,20 +45,20 @@ void srt(int *y, int *s){
                         //if(posicao == y[i]) //y={3,5,5,6}
                         {   menorS = s[i];
                             d = i;// salva a posicao quando tem q fazer a troca
-                            
-                            
+                                              
                         }
                     }
                 }
             }
         }
-        
+        /*
         //registra os valores de s[] antes de andar a posicao
         for(int i = 0; i<n; i++)
         {
             auxS[i] = s[i];
         }
-        cout <<d <<endl;
+        */
+        //cout <<d <<endl;
         s[d]--;
         posicao++;
       
