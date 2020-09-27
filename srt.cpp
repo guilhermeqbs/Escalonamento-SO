@@ -7,13 +7,17 @@ void srt(int *y, int *s){
     
     int wolf[4];
 
+    int copiaS[4];
+
+    for(int p=0; p<4; p++)
+    {   
+        copiaS[p]= s[p];
+    }
+
     for(int p=0; p<4; p++)
     {   
         wolf[p] = y[p];
     }
-
-
-
 
     int n = 4;
 
@@ -27,29 +31,57 @@ void srt(int *y, int *s){
     posicao = wolf[0];
     //tempoRes = s[];
     
-    int d=0 , menorS = 0;
+    int d=0 , menorS = 0, qtd = 0, qtdPassado = 0;
 
     for(int u=0; u<x; u++)//anda com a posicao 
-    {
-        for(int i=0; i<n; i++)//verificca se tem que inciar a verificao acada vez que a posicao anda
-        {
-            menorS = 0;//Reseta o menorS *
-
-            if(posicao == wolf[i] //y={3,5,5,6}
-            {   
-                for(int j=0; j<=i; j++)//comparar os valores de s dos processos na fila de espera
-                {
-                    //*ERRO*   Trava s[i] e anda por todos s[j]. MenorS registra o primeiro s[] menor encontrado
-                    if( menorS < s[i] and s[i] < s[j] and s[i] > 0)// Nao deixa o s[] ser menor do q 0.
-                    {                   
-                        //if(posicao == y[i]) //y={3,5,5,6}
-                        {   menorS = s[i];
-                            d = i;// salva a posicao quando tem q fazer a troca
-                                              
-                        }
+    {       
+            //*ERRO*
+            //Subistui o "if(posicao == wolf[i])" la de baixo.
+            if(posicao <= wolf[n-1]){//So faz nas entradas de processo
+                qtd=-1;
+                for(int k=0; k<=; k++){
+                    if(posicao <= wolf[k])// n sei se precisa
+                    {
+                        qtd++;//contar quantas vezes o i deve executar        
                     }
                 }
             }
+
+        for(int i=0; i<=qtd; i++)//verificca se tem que inciar a verificao acada vez que a posicao anda
+        {
+            menorS = copiaS[d];//Reseta o menorS *
+            
+            //if(posicao == wolf[i]) //y={3,5,5,6}
+            //{   
+                for(int j=0; j<=i; j++)//comparar os valores de s dos processos na fila de espera
+                {   
+
+                    // *Temos que voltar para o S[0]=3* e nao pular como abaixo
+                    //Quando o processo acabar(s[] = 0) ele pula pro proximo processo 
+                    if(menorS < 1)
+                    {   
+                        for (int g = 0; g <qtd; g++)
+                        {
+                            if(copiaS[g])
+                            {
+                               d=g; 
+                            }
+                        }
+                        
+                    }
+                    else{
+                        //Trava s[i] e anda por todos s[j]. MenorS registra o primeiro s[] menor encontrado
+                        if( menorS > copiaS[i] and copiaS[i] < copiaS[j] and copiaS[i] > 0)// Nao deixa o s[] ser menor do q 0.
+                        {                   
+                            //if(posicao == y[i]) //y={3,5,5,6}
+                            {   menorS = copiaS[i];
+                                d = i;// salva a posicao quando tem q fazer a troca
+                                                
+                            }
+                        }
+                    }
+                }
+           // }
         }
         /*
         //registra os valores de s[] antes de andar a posicao
@@ -59,7 +91,7 @@ void srt(int *y, int *s){
         }
         */
         //cout <<d <<endl;
-        s[d]--;
+        copiaS[d]--;
         posicao++;
       
     /*  
