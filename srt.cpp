@@ -39,8 +39,8 @@ void srt(int *y, int *s){
             //Subistui o "if(posicao == wolf[i])" la de baixo.
             if(posicao <= wolf[n-1]){//So faz nas entradas de processo
                 qtd=-1;
-                for(int k=0; k<=; k++){
-                    if(posicao <= wolf[k])// n sei se precisa
+                for(int k=0; k<n; k++){
+                    if(posicao >= wolf[k])// n sei se precisa
                     {
                         qtd++;//contar quantas vezes o i deve executar        
                     }
@@ -57,14 +57,14 @@ void srt(int *y, int *s){
                 {   
 
                     // *Temos que voltar para o S[0]=3* e nao pular como abaixo
-                    //Quando o processo acabar(s[] = 0) ele pula pro proximo processo 
                     if(menorS < 1)
                     {   
                         for (int g = 0; g <qtd; g++)
                         {
-                            if(copiaS[g])
+                            if(copiaS[g] > 0)
                             {
                                d=g; 
+                               break;
                             }
                         }
                         
