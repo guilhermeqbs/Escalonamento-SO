@@ -5,7 +5,7 @@ using namespace std;
 
 void srt(int *y, int *s){
     
-    const int n = 3;
+    const int n = 4;
 
     int wolf[n];
 
@@ -44,7 +44,6 @@ void srt(int *y, int *s){
 
     for(int u=0; u<x; u++)//anda com a posicao 
     {       
-            //*ERRO*
             //Subistui o "if(posicao == wolf[i])" la de baixo.
             if(posicao <= wolf[n-1]){//So faz nas entradas de processo
                 qtd=-1;
@@ -65,7 +64,7 @@ void srt(int *y, int *s){
                 for(int j=0; j<=i; j++)//comparar os valores de s dos processos na fila de espera
                 {   
 
-                    // *Temos que voltar para o S[0]=3* e nao pular como abaixo
+                    // Temos que voltar para o S[0]=3* e nao pular como abaixo: FEITO!
                     if(menorS < 1)
                     {   
                         for (int g = 0; g <qtd; g++)
@@ -73,7 +72,7 @@ void srt(int *y, int *s){
                             if(copiaS[g] > 0)
                             {
                                d=g; 
-                               break;
+                               break;//Isso tudo pra o caso de quando o s[] chegar em zero e verificar se tem algum processo na espera
                             }
                         }
                         
