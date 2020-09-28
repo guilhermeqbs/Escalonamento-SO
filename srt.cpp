@@ -5,29 +5,38 @@ using namespace std;
 
 void srt(int *y, int *s){
     
-    int wolf[4];
+    const int n = 3;
 
-    int copiaS[4];
+    int wolf[n];
 
-    for(int p=0; p<4; p++)
+    int copiaS[n];
+
+   // int auxS[n];
+   // int espera[n]; //vetor que armazena o valor de espera de cada processo
+
+    for(int p=0; p<n; p++)
     {   
         copiaS[p]= s[p];
     }
 
-    for(int p=0; p<4; p++)
+    for(int p=0; p<n; p++)
     {   
         wolf[p] = y[p];
     }
 
-    int n = 4;
+    
 
-    int espera[n]; //vetor que armazena o valor de espera de cada processo
+    
     int posicao = 0,tempoRes = 0;
     float mediaEspera = 0, somaEspera = 0;
-    int x=17;
-    int auxS[n];
+    //int x=17;
+    int x=0;
     //x = soma do valor s[] de todos *+ (primero y[0]).*
-   
+    for(int p=0; p<n; p++){
+        x += copiaS[p];
+    }
+
+
     posicao = wolf[0];
     //tempoRes = s[];
     
@@ -83,32 +92,34 @@ void srt(int *y, int *s){
                 }
            // }
         }
-        /*
-        //registra os valores de s[] antes de andar a posicao
-        for(int i = 0; i<n; i++)
-        {
-            auxS[i] = s[i];
-        }
-        */
+    
+        
+        
         //cout <<d <<endl;
         copiaS[d]--;
         posicao++;
       
-    /*  
+    /*
+        //registra os valores de s[] antes de andar a posicao
+        for(int i = 0; i<n; i++)
+        {
+            if(copiaS[i] > 0){
+                auxS[i] = copiaS[i];
+            }
+        }
+    
         //para calcular o valor da espera: comparar o s[i] com o s[i] anterior if(s[i]==s[i]-1) espera++
         for(int i = 0; i<n; i++)
         {
             //Calcula a posicao do vetor
 
-            if(auxS[i] == s[i])
+            if(auxS[i] == copiaS[i])
             {
                 espera[i]++;
             }
         }
     */
-
     }
-
 
     /*
     //Imprimi vetor
@@ -116,5 +127,5 @@ void srt(int *y, int *s){
      {
          cout <<espera[i]<<endl;
      }
-     */
+    */ 
 }
