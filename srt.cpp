@@ -135,12 +135,15 @@ void srt(int n, int *y, int *s){
 
     mediaEspera = somaEspera/n;
     mediaResposta = somaResposta/n;
-
+    
+    /*
     //Imprimi vetor
-     for(int i=0; i<n; i++)
-     {
-         cout <<espera[i] <<"\t " <<resposta[i] <<endl;
-     }
+    cout <<Espera <<"\t " <<Resposta <<endl;
+    for(int i=0; i<n; i++)
+    {
+        cout <<espera[i] <<"\t " <<resposta[i] <<endl;
+    }
+     */
      cout <<"SRT_: Media Espera: " <<mediaEspera <<endl;
     
      cout <<"SRT_: Media Resposta: " <<mediaResposta;
