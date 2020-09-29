@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int *p, *i, *s;
+int *p, *y, *s;
 
 using namespace std;
 
@@ -49,7 +49,6 @@ void entradaArquivo(string nomeTXT){
                 //cout <<"cont: " <<count<<endl<<endl;
                 
                 count++;
-
             }
         }
         else
@@ -75,7 +74,7 @@ void quebrarLinha(string linha)
 {
     char *linhaAux;
     char *fragLinha;//*char para quebrar a linha 
-
+    int aux=0;
     linhaAux = convercaoStringParaChar(linha);
 
     //Percorre toda a linha, ignora os espacos em branco e armazena os valores em outras variaveis.
@@ -87,9 +86,7 @@ void quebrarLinha(string linha)
  
         //converter valores em int
         
-       // aux = atoi(fragLinha);
-
-
+        aux = atoi(fragLinha);
     }
 
 }

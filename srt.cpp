@@ -4,8 +4,6 @@
 using namespace std;
 
 void srt(int n, int *y, int *s){
-    
-    //const int n = 4;
 
     int d=0;//Posição do decrementador
     int menorS = 0;//Menor valor de s[]
@@ -13,8 +11,6 @@ void srt(int n, int *y, int *s){
 
     int posicao=0;//Posição do processo
     int tam=0;//Tamanho do processo
-    
-    int wolf[n];
     
     int copiaS[n];//Copia do vetor s[]
     int auxS[n];//Copia do vetor s[]
@@ -31,8 +27,6 @@ void srt(int n, int *y, int *s){
     //Copia vetores
     for(int p=0; p<n; p++)
     {   
-        wolf[p] = y[p]; //
-        
         copiaS[p]= s[p];
         auxS[p] = s[p];
         
@@ -42,110 +36,109 @@ void srt(int n, int *y, int *s){
     
     //Cálculo do tamanho do processo
     for(int p=0; p<n; p++){
-        tam += copiaS[p];
+        tam += s[p];
     }
 
-    posicao = wolf[0];//Determina onde o processo comeca
+    posicao = y[0];//Determina onde o processo começa
     
-    for(int u=0; u<tam; u++)//movimenta a variável da posição 
+    for(int u=0; u<tam; u++)//Movimenta a variável da posição 
     {       
             //Permite que apenas os processos que entraram execute
-            if(posicao <= wolf[n-1]){//Só executa nas entradas de processo
+            if(posicao <= y[n-1]){//Só executa nas entradas de processo
+                
                 qtd=-1;
+
                 for(int k=0; k<n; k++){
-                    if(posicao >= wolf[k])
+                    
+                    if(posicao >= y[k])
                     {
-                        qtd++;//contador do número de execuções da variável i      
+                        qtd++;//Contador do número de execuções da variável i      
                     }
                 }
             }
 
-        for(int i=0; i<=qtd; i++)//verificca se tem que inciar a verificao acada vez que a posicao anda
+        for(int i=0; i<=qtd; i++)//verifica se tem que inciar a verificação acada vez que a posição anda
         {
-            menorS = copiaS[d];//Reseta o menorS *
+            menorS = s[d];//Reseta o menorS
               
-                for(int j=0; j<=i; j++)//comparar os valores de s dos processos na fila de espera
+            for(int j=0; j<=i; j++)//comparar os valores de S dos processos na fila de espera
+            {   
+                //Quando o valor de s[] chegar em zero, verifica se tem algum processo anterior na espera
+                if(menorS < 1)
                 {   
-
-                    // Temos que voltar para o S[0]=3* e nao pular como abaixo: FEITO!
-                    if(menorS < 1)
-                    {   
-                        for (int g = 0; g <qtd; g++)
+                    for (int g = 0; g <qtd; g++)
+                    {
+                        if(s[g] > 0)
                         {
-                            if(copiaS[g] > 0)
-                            {
-                               d=g; 
-                               break;//Isso tudo pra o caso de quando o s[] chegar em zero e verificar se tem algum processo na espera
-                            }
+                            d=g; //salva a posicao do processo que esta em espera
+                            break;
                         }
-                        
-                    }
-                    else{
-                        //Trava s[i] e anda por todos s[j]. MenorS registra o primeiro s[] menor encontrado
-                        if( menorS > copiaS[i] and copiaS[i] < copiaS[j] and copiaS[i] > 0)// Nao deixa o s[] ser menor do q 0.
-                        {                   
-                            //if(posição == y[i]) //y={3,5,5,6}
-                            {   menorS = copiaS[i];
-                                d = i;// salva a posição quando tem q fazer a troca
-                                                
-                            }
+                    }  
+                }
+                else
+                {
+                    //Trava s[i] e anda por todos s[j]. MenorS registra o primeiro s[] menor encontrado
+                    if( menorS > s[i] and s[i] < s[j] and s[i] > 0)// Não deixa o s[] ser menor do q 0.
+                    {                   
+                        {   
+                            menorS = s[i];
+                            d = i;// salva a posição quando tem q fazer a troca
+                                            
                         }
                     }
                 }
+            }
         }
 
         //registra os valores de s[] antes de andar a posição
         for(int i = 0; i<n; i++)
         {
-                auxS[i] = copiaS[i];   
+            auxS[i] = s[i];   
         }
         
-        //cout <<d <<endl;
-        copiaS[d]--;
-        ++posicao;
+        s[d]--;//Decrementa o valor de s[] do processo em execução.
+        posicao++;//Incrementa o valor da posição
       
-    
-    //vetor dos valores do tempo de espera
+        //Vetor dos valores do tempo de espera
         for(int i = 0; i<=qtd; i++)
         {
-            if(auxS[i] == copiaS[i] and copiaS[i] > 0)
+            if(auxS[i] == s[i] and s[i] > 0)
             {
                 ++espera[i];
             }
         }
 
-   //vetor dos valores do tempo de resposta
+        //Vetor dos valores do tempo de resposta
         for(int i = 0; i<=qtd; i++)
         {
-            if(auxS[i] == copiaS[i] and s[i] == copiaS[i])
+            if(auxS[i] == s[i] and copiaS[i] == s[i])
             {
                 ++resposta[i];
             }
         }
     }
     
-
-    //Calculo da media
-     for(int i=0; i<n; i++)
-     {
+    //Cálculo da média
+    for(int i=0; i<n; i++)
+    {
         somaEspera += espera[i];
 
         somaResposta += resposta[i];
-     }
+    }
 
     mediaEspera = somaEspera/n;
     mediaResposta = somaResposta/n;
     
     /*
-    //Imprimi vetor
+    //Imprime vetor
     cout <<Espera <<"\t " <<Resposta <<endl;
     for(int i=0; i<n; i++)
     {
         cout <<espera[i] <<"\t " <<resposta[i] <<endl;
     }
      */
-     cout <<"SRT_: Media Espera: " <<mediaEspera <<endl;
+    cout <<"SRT_: Media Espera: " <<mediaEspera <<endl;
     
-     cout <<"SRT_: Media Resposta: " <<mediaResposta;
+    cout <<"SRT_: Media Resposta: " <<mediaResposta;
     
 }

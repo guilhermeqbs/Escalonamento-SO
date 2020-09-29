@@ -17,7 +17,7 @@ int main()
 
     //fifo(n, y,s);
     
-    //srt(n,y,s);
+    srt(n,y,s);
 
     return 0;
 }
