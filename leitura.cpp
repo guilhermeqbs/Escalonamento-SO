@@ -74,18 +74,25 @@ void quebrarLinha(string linha)
 {
     char *linhaAux;
     char *fragLinha;//*char para quebrar a linha 
-    int aux=0;
+    
+    int n=-1;
+
     linhaAux = convercaoStringParaChar(linha);
 
     //Percorre toda a linha, ignora os espacos em branco e armazena os valores em outras variaveis.
     fragLinha = strtok(linhaAux," ");
+    
+    n  = atoi(fragLinha);
+    
+    s = new int(n);
+    int aux = -1;
+    
     while(fragLinha != NULL)
     {
         cout <<endl <<fragLinha <<endl;
         fragLinha = strtok(NULL," ");
  
         //converter valores em int
-        
         aux = atoi(fragLinha);
     }
 
