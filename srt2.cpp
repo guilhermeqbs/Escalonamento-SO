@@ -68,7 +68,7 @@ void srt(int n, int *y, int *s){
                 {   
                     for (int g = 0; g <qtd; g++)
                     {
-                        if(s[g] > 0 and s[g] < menorNum(s,qtd))
+                        if(s[g] > 0)
                         {
                             d=g; //salva a posicao do processo que esta em espera
                             break;
