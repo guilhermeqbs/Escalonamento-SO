@@ -3,21 +3,24 @@
 //#include "fifo.cpp"
 #include "sa.cpp"
 //#include "prio.cpp"
+#include "sp.cpp"
 
 using namespace std;
 
 int main()
 {   
-    const int n = 4;
-    /*
-    int y [n] = {3,14,20};
-    int s[n] = {33, 54, 42};
-    */
+    const int n = 3;
     
+    int p[n] = {2,1,0};
+    int y[n] = {3,14,20};
+    int s[n] = {33,54,42};
+    
+    
+    /*
     //srt
     int y[n] = {3,5,5,6};
     int s[n] = {5,6,2,2};
-    
+    */
     
     /*
     //prio
@@ -27,9 +30,9 @@ int main()
     */
     //fifo(n, y,s);
     
-    srt(n,y,s);
+    //srt(n,y,s);
     
-    //prio(n,p,y,s);
+    prio(n,p,y,s);
 
     return 0;
 }

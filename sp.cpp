@@ -2,9 +2,9 @@
 
 using namespace std;
 
-int menorNum(int *v, int qtd);
+int menorNumP(int *p, int *s,int qtd);
 
-void srt(int n, int *y, int *s)
+void prio(int n, int *p, int *y, int *s)
 {
     int qtd = 0;//Quantidade que deve ser comparada -- Permite fazer as operações apenas dos processo que entraram. 
 
@@ -24,18 +24,18 @@ void srt(int n, int *y, int *s)
     float mediaResposta; 
     
     //Copia vetores
-    for(int p=0; p<n; p++)
+    for(int a=0; a<n; a++)
     {   
-        copiaS[p]= s[p];
-        auxS[p] = s[p];
+        copiaS[a]= s[a];
+        auxS[a] = s[a];
        
-        espera[p] = 0;
-        resposta[p] = 0;
+        espera[a] = 0;
+        resposta[a] = 0;
     }
     
     //Cálculo do tamanho do processo
-    for(int p=0; p<n; p++){
-        tam += s[p];
+    for(int a=0; a<n; a++){
+        tam += s[a];
     }
 
     posicao = y[0];//Determina onde o processo começa
@@ -62,7 +62,7 @@ void srt(int n, int *y, int *s)
             auxS[i] = s[i];   
         }
         
-        s[menorNum(s,qtd)]--;//Decrementa o valor de s[] do processo em execução.
+        s[menorNumP(p,s,qtd)]--;//Decrementa o valor de s[] do processo em execução.
         posicao++;//Incrementa o valor da posição
       
         //Vetor dos valores do tempo de espera
@@ -108,16 +108,16 @@ void srt(int n, int *y, int *s)
     cout <<"SRT_: Media Resposta: " <<mediaResposta;
 }
 
-int menorNum(int *v, int qtd)//retorna o indice do menor numero do vetor
+int menorNumP(int *p, int *s,int qtd)//retorna o indice do menor numero do vetor
 {   
     int menor=99999999;
     int indice;
 
     for(int i=0;i<=qtd;i++)
     {  
-        if (v[i] < menor and v[i] > 0)
+        if (p[i] < menor and s[i] > 0)
         {
-            menor = v[i];
+            menor = p[i];
             indice = i;
         }
     }
