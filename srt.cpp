@@ -1,7 +1,8 @@
 #include <iostream>
-//#include "ordenarPro.cpp"
 
 using namespace std;
+
+int menorNum(int *v, int n);
 
 void srt(int n, int *y, int *s){
 
@@ -43,7 +44,7 @@ void srt(int n, int *y, int *s){
     
     for(int u=0; u<tam; u++)//Movimenta a variável da posição 
     {       
-            //Permite que apenas os processos que entraram execute
+            //Permite que apenas os processos que entraram executem
             if(posicao <= y[n-1]){//Só executa nas entradas de processo
                 
                 qtd=-1;
@@ -66,13 +67,19 @@ void srt(int n, int *y, int *s){
                 //Quando o valor de s[] chegar em zero, verifica se tem algum processo anterior na espera
                 if(menorS < 1)
                 {   
-                    for (int g = 0; g <qtd; g++)
-                    {
-                        if(s[g] > 0)
+                    for (int g = 0; g <=qtd; g++)
+                    {   
+                        menorS = menorNum(s,n);
+                        for(int t = 0; t <=g; t++)
                         {
-                            d=g; //salva a posicao do processo que esta em espera
-                            break;
+                            if(s[g] < menorS and s[g] < s[t] and s[g] > 0)
+                            {   
+                                menorS = s[g];
+                                d=g; //salva a posicao do processo que esta em espera
+                                
+                            }
                         }
+                        
                     }  
                 }
                 else
@@ -141,4 +148,24 @@ void srt(int n, int *y, int *s){
     
     cout <<"SRT_: Media Resposta: " <<mediaResposta;
     
+}
+
+int menorNum(int *v, int n)
+{   
+    int menor;
+
+    for(int i=0;i<n;i++)
+    {   
+        if(i==0)
+        {
+            menor = v[i];
+        }
+
+        if (v[i] < menor)
+        {
+            menor = v[i];
+        }
+    }
+
+    return menor;
 }

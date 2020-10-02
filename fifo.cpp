@@ -1,9 +1,8 @@
 #include <iostream>
-#include "ordenarPro.cpp"
 
 using namespace std;
 
-void fifo( int n,int *y, int *s)
+void fifo(int n,int *y, int *s)
 {   
     int espera[n]; //vetor que armazena o valor de espera de cada processo
     int  posicao = 0;
