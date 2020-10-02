@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {   
-    int n = 4;
+    const int n = 4;
 
     //int y [n] = {3,14,20};
     //int s[n] = {33, 54, 42};

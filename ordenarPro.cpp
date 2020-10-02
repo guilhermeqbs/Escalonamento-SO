@@ -1,7 +1,7 @@
 #include <iostream>
 #include"quickSort.cpp"
 
-using namespace std;
+//using namespace std;
 
 //Coloca os processos na ordem de chegada
 void ordenacaoProcessos(int *a, int *b){
