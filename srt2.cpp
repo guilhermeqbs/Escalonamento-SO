@@ -1,9 +1,8 @@
 #include <iostream>
+//#include "ordenarPro.cpp"
 
 using namespace std;
-
-int menorNum(int *v, int n);
-
+int menorNum(int *v, int qtd);
 void srt(int n, int *y, int *s){
 
     int d=0;//Posição do decrementador
@@ -15,7 +14,6 @@ void srt(int n, int *y, int *s){
     
     int copiaS[n];//Copia do vetor s[]
     int auxS[n];//Copia do vetor s[]
-    
 
     int resposta[n];//Vetor que armazena o valor de resposta de cada posição
     int espera[n]; //Vetor que armazena o valor de espera de cada processo
@@ -31,7 +29,6 @@ void srt(int n, int *y, int *s){
     {   
         copiaS[p]= s[p];
         auxS[p] = s[p];
-       
         
         espera[p] = 0;
         resposta[p] = 0;
@@ -46,7 +43,7 @@ void srt(int n, int *y, int *s){
     
     for(int u=0; u<tam; u++)//Movimenta a variável da posição 
     {       
-            //Permite que apenas os processos que entraram executem
+            //Permite que apenas os processos que entraram execute
             if(posicao <= y[n-1]){//Só executa nas entradas de processo
                 
                 qtd=-1;
@@ -61,12 +58,25 @@ void srt(int n, int *y, int *s){
             }
 
         for(int i=0; i<=qtd; i++)//verifica se tem que inciar a verificação acada vez que a posição anda
-        {   
-              menorS = menorNum(s,qtd);
-            
+        {
+            menorS = s[d];//Reseta o menorS
+              
             for(int j=0; j<=i; j++)//comparar os valores de S dos processos na fila de espera
             {   
-                
+                //Quando o valor de s[] chegar em zero, verifica se tem algum processo anterior na espera
+                if(menorS < 1)
+                {   
+                    for (int g = 0; g <qtd; g++)
+                    {
+                        if(s[g] > 0 and s[g] < menorNum(s,qtd))
+                        {
+                            d=g; //salva a posicao do processo que esta em espera
+                            break;
+                        }
+                    }  
+                }
+                else
+                {
                     //Trava s[i] e anda por todos s[j]. MenorS registra o primeiro s[] menor encontrado
                     if( menorS > s[i] and s[i] < s[j] and s[i] > 0)// Não deixa o s[] ser menor do q 0.
                     {                   
@@ -76,13 +86,13 @@ void srt(int n, int *y, int *s){
                                             
                         }
                     }
-                
+                }
             }
         }
 
         //registra os valores de s[] antes de andar a posição
         for(int i = 0; i<n; i++)
-        {   
+        {
             auxS[i] = s[i];   
         }
         
@@ -119,17 +129,19 @@ void srt(int n, int *y, int *s){
     mediaEspera = somaEspera/n;
     mediaResposta = somaResposta/n;
     
-    
+    /*
     //Imprime vetor
-    cout <<"Espera" <<"\t " <<"Resposta" <<endl;
+    cout <<Espera <<"\t " <<Resposta <<endl;
     for(int i=0; i<n; i++)
     {
         cout <<espera[i] <<"\t " <<resposta[i] <<endl;
     }
-     
+     */
     cout <<"SRT_: Media Espera: " <<mediaEspera <<endl;
     
     cout <<"SRT_: Media Resposta: " <<mediaResposta;
+    
+ 
     
 }
 
@@ -144,6 +156,6 @@ int menorNum(int *v, int qtd)
             menor = v[i];
         }
     }
-    //Subtrair o s[d] aqui??
+
     return menor;
 }
