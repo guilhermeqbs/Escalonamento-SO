@@ -1,9 +1,9 @@
 #include <iostream>
 //#include "ordenarPro.cpp"
-//#include "fifo.cpp"
-#include "sa.cpp"
-//#include "prio.cpp"
-#include "sp.cpp"
+#include "fifo.cpp"
+#include "prio.cpp"
+#include "srt.cpp"
+
 
 using namespace std;
 

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -29,6 +30,6 @@ void fifo(int n,int *y, int *s)
     }
     mediaEspera = somaEspera/n;
 
-    cout <<"Media de espera: " <<mediaEspera <<endl;
+    cout <<"Media de espera: " <<fixed <<setprecision(2) <<mediaEspera <<endl;
 }
 
