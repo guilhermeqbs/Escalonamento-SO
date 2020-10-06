@@ -103,6 +103,7 @@ void prio(int n, int *p, int *y, int *s)
         cout <<espera[i] <<"\t " <<resposta[i] <<endl;
     }
      
+     
     cout <<"PRIO: Media Espera: " <<mediaEspera <<endl;
     
     cout <<"PRIO: Media Resposta: " <<mediaResposta;
