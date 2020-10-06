@@ -18,3 +18,18 @@ int main()
     
     cout <<menor;
 }
+
+int menorNum(int *v, int qtd)
+{   
+    int menor=99999999;
+
+    for(int i=0;i<=qtd;i++)
+    {  
+        if (v[i] < menor and v[i] > 0)
+        {
+            menor = v[i];
+        }
+    }
+
+    return menor;
+}

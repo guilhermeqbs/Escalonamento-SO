@@ -103,9 +103,9 @@ void prio(int n, int *p, int *y, int *s)
         cout <<espera[i] <<"\t " <<resposta[i] <<endl;
     }
      
-    cout <<"SRT_: Media Espera: " <<mediaEspera <<endl;
+    cout <<"PRIO: Media Espera: " <<mediaEspera <<endl;
     
-    cout <<"SRT_: Media Resposta: " <<mediaResposta;
+    cout <<"PRIO: Media Resposta: " <<mediaResposta;
 }
 
 int menorNumP(int *p, int *s,int qtd)//retorna o indice do menor numero do vetor
