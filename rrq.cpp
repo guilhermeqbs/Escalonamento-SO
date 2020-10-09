@@ -7,7 +7,7 @@ using namespace std;
 void rrq(int n, int *y, int *s)
 {   
     int qtd = 0;//Quantidade que deve ser comparada -- Permite fazer as operações apenas dos processo que entraram. 
-    int quantum = 3;
+    int quantum = 5;
 
     //Quantidade em que se deve andar pela execucao dos processos,
     int andador = quantum;//podendo assumir valor inferior quando o processo resta valor menor que o quantum.

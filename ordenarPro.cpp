@@ -18,11 +18,8 @@ void ordenacaoProcessos(int *a, int *b){
 
     int n = 3;
 
-    long long int cont=0 ,mov = 0;
-
-    
     //ordernar vetor obtendo a fila de exucacao na ordem correta
-    quickSort(a,0,n,cont,mov);//(vetor,inicio,tamanho,cont,mov)
+        //quickSort(a,0,n,cont,mov);//(vetor,inicio,tamanho,cont,mov)
     
     
     //Imprimi vetor

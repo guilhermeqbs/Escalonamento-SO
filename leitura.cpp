@@ -96,5 +96,16 @@ void quebrarLinha(string linha)
         aux = atoi(fragLinha);
     }
 
+   
+    
 }
 
+    //bubbleSort(n,p,y,s);
+
+    //fifo(n, y,s);
+    
+    //srt(n,y,s);
+    
+    //prio(n,p,y,s);
+
+    //rrq(n,y,s);

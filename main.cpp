@@ -1,4 +1,3 @@
-#include <iostream>
 //#include "ordenarPro.cpp"
 #include "fifo.cpp"
 #include "prio.cpp"
@@ -10,18 +9,24 @@ using namespace std;
 
 int main()
 {   
-    const int n = 4;
-    /*
+    const int n = 3;
+    
     int p[n] = {2,1,0};
     int y[n] = {3,14,20};
     int s[n] = {33,54,42};
+    
+
+   /*
+    //rrq
+    int y[n] = {3,3,4,4,7};
+    int s[n] = {5,3,4,4,3};
     */
 
-    
+    /*
     //srt
     int y[n] = {3,5,5,6};
     int s[n] = {5,6,2,4};  
-   
+    */
 
     /*
     //prio
