@@ -16,13 +16,7 @@ void fifo(int n,int *y, int *s)
         espera[i] =  posicao - y[i];
         posicao += s[i];
     }
-    /*
-    //Imprimi vetor
-     for(int i=0; i<T; i++)
-     {
-         cout <<espera[i]<<endl;
-     }
-    */
+
     //calculo da media de espera.
     for(int i=0; i<n; i++)
     {
