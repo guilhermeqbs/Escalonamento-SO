@@ -43,20 +43,14 @@ void srt(int n, int *y, int *s)
 
     for(int u=0; u<tam; u++)
     {
-        //Permite que apenas os processos que entraram execute
-        if(posicao <= y[n-1])//Só executa nas entradas de processo
+        for(int k=0; k<n; k++)
         {
-            qtd=-1;
-
-            for(int k=0; k<n; k++){
-                
-                if(posicao >= y[k])
-                {
-                    qtd++;//Contador do número de execuções da variável i      
-                }
+            if(posicao >= y[k])
+            {
+                qtd = k;//Contador do número de execuções da variável i      
             }
         }
-
+        
         //registra os valores de s[] antes de andar a posição
         for(int i = 0; i<n; i++)
         {
@@ -104,7 +98,7 @@ void srt(int n, int *y, int *s)
         cout <<espera[i] <<"\t " <<resposta[i] <<endl;
     }
      
-    cout <<"SRT_: Media Espera: " <<fixed <<setprecision(4) <<mediaEspera <<endl;
+    cout <<"SRT_: Media Espera: " <<fixed <<setprecision(2) <<mediaEspera <<endl;
     
     cout <<"SRT_: Media Resposta: " <<mediaResposta;
 }
@@ -123,3 +117,4 @@ int menorNum(int *v, int qtd)//retorna o indice do menor numero do vetor
         }
     }
     return indice;
+}

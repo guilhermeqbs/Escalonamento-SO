@@ -42,20 +42,14 @@ void prio(int n, int *p, int *y, int *s)
 
     for(int u=0; u<tam; u++)
     {
-        //Permite que apenas os processos que entraram execute
-        if(posicao <= y[n-1])//Só executa nas entradas de processo
-        {
-            qtd=-1;
-
-            for(int k=0; k<n; k++){
-                
-                if(posicao >= y[k])
-                {
-                    qtd++;//Contador do número de execuções da variável i      
-                }
+        for(int k=0; k<n; k++){
+            
+            if(posicao >= y[k])
+            {
+                qtd = k;//Contador do número de execuções da variável i      
             }
         }
-
+        
         //registra os valores de s[] antes de andar a posição
         for(int i = 0; i<n; i++)
         {
@@ -123,3 +117,4 @@ int menorNumP(int *p, int *s,int qtd)//retorna o indice do menor numero do vetor
         }
     }
     return indice;
+}
