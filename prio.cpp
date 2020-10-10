@@ -89,18 +89,7 @@ void prio(int n, int *p, int *y, int *s)
     mediaEspera = somaEspera/n;
     mediaResposta = somaResposta/n;
     
-    
-    //Imprime vetor
-    cout <<"Espera" <<"\t " <<"Resposta" <<endl;
-    for(int i=0; i<n; i++)
-    {
-        cout <<espera[i] <<"\t " <<resposta[i] <<endl;
-    }
-     
-     
-    cout <<"PRIO: Media Espera: " <<fixed <<setprecision(2) <<mediaEspera <<endl;
-    
-    cout <<"PRIO: Media Resposta: " <<mediaResposta;
+    saidaArquivo("\nPRIO ",mediaEspera,mediaResposta);
 }
 
 int menorNumP(int *p, int *s,int qtd)//retorna o indice do menor numero do vetor

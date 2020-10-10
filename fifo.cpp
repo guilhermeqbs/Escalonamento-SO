@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include "escrita.cpp"
 
 using namespace std;
 
@@ -25,7 +26,6 @@ void fifo(int n,int *y, int *s)
     mediaEspera = somaEspera/n;
     mediaResposta = mediaEspera;
 
-    cout <<"FIFO: Media de espera: " <<fixed <<setprecision(2) <<mediaEspera <<endl;
-    cout <<"FIFO: Media Resposta: " <<mediaResposta;
+    saidaArquivo("FIFO ",mediaEspera,mediaResposta);
 }
 

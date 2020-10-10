@@ -170,18 +170,8 @@ void rrq(int n, int *y, int *s)
     mediaEspera = somaEspera/n;
     mediaResposta = somaResposta/n;
     
-    
-    //Imprime vetor
-    cout <<"Espera" <<"\t " <<"Resposta" <<endl;
-    for(int i=0; i<n; i++)
-    {
-        cout <<espera[i] <<"\t " <<resposta[i] <<endl;
-    }
      
-    cout <<"RRQ5: Media Espera: " <<fixed <<setprecision(2) <<mediaEspera <<endl;
-    
-    cout <<"RRQ5: Media Resposta: " <<mediaResposta;
-    
+    saidaArquivo("\nRRQ5 ",mediaEspera,mediaResposta);
 }
 
 

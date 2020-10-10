@@ -14,7 +14,9 @@ int main()
     int p[n] = {2,1,0};
     int y[n] = {3,14,20};
     int s[n] = {33,54,42};
-    
+    int copiaP[n];
+    int copiaY[n];
+    int copiaS[n];
 
    /*
     //rrq
@@ -35,13 +37,39 @@ int main()
     int s[n] ={6,6,2,4,2};
     */
 
-    //fifo(n, y,s);
+    for(int i=0; i<n; i++)
+    {
+        copiaP[i] = p[i];
+        copiaY[i] = y[i];
+        copiaS[i] = s[i];
+    }
+
+    fifo(n,y,s);
     
-    //srt(n,y,s);
-    
-    /*
+    for(int i=0; i<n; i++)
+    {
+        p[i] = copiaP[i];
+        y[i] = copiaY[i];
+        s[i] = copiaS[i];
+    }
+
     prio(n,p,y,s);
-    */
+
+    for(int i=0; i<n; i++)
+    {
+        p[i] = copiaP[i];
+        y[i] = copiaY[i];
+        s[i] = copiaS[i];
+    }
+
+    srt(n,y,s);
+
+    for(int i=0; i<n; i++)
+    {
+        p[i] = copiaP[i];
+        y[i] = copiaY[i];
+        s[i] = copiaS[i];
+    }
 
     rrq(n,y,s);
 

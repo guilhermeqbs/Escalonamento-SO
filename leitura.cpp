@@ -5,6 +5,12 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "fifo.cpp"
+#include "prio.cpp"
+#include "srt.cpp"
+#include "rrq.cpp"
+#include "bubbleSort.cpp"
+
 int *p, *y, *s;
 
 using namespace std;
@@ -94,6 +100,7 @@ void quebrarLinha(string linha)
  
         //converter valores em int
         aux = atoi(fragLinha);
+        
     }
 
    
