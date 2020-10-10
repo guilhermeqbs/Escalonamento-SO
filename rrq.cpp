@@ -171,7 +171,8 @@ void rrq(int n, int *y, int *s)
     mediaResposta = somaResposta/n;
     
      
-    saidaArquivo("\nRRQ5 ",mediaEspera,mediaResposta);
+    saidaArquivo("RRQ5 ",mediaEspera,mediaResposta);
+
 }
 
 

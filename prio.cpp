@@ -89,7 +89,7 @@ void prio(int n, int *p, int *y, int *s)
     mediaEspera = somaEspera/n;
     mediaResposta = somaResposta/n;
     
-    saidaArquivo("\nPRIO ",mediaEspera,mediaResposta);
+    saidaArquivo("PRIO ",mediaEspera,mediaResposta);
 }
 
 int menorNumP(int *p, int *s,int qtd)//retorna o indice do menor numero do vetor

@@ -90,7 +90,7 @@ void srt(int n, int *y, int *s)
     mediaEspera = somaEspera/n;
     mediaResposta = somaResposta/n;
     
-    saidaArquivo("\nSRT_ ",mediaEspera,mediaResposta);
+    saidaArquivo("SRT_ ",mediaEspera,mediaResposta);
 }
 
 int menorNum(int *v, int qtd)//retorna o indice do menor numero do vetor

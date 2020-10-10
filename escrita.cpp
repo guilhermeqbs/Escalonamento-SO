@@ -13,7 +13,7 @@ void saidaArquivo(string str, float mediaEspera, float mediaResposta){
 
     saida.open("saida.txt",fstream::app);
 
-    saida <<str <<fixed <<setprecision(2)<<mediaEspera <<" "<<mediaResposta;
+    saida <<str <<fixed <<setprecision(2)<<mediaEspera <<" "<<mediaResposta <<endl;
 
     saida.close();
 }

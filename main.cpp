@@ -11,9 +11,27 @@ int main()
 {   
     const int n = 3;
     
-    int p[n] = {2,1,0};
+    /*int p[n] = {2,1,0};
     int y[n] = {3,14,20};
-    int s[n] = {33,54,42};
+    int s[n] = {33,54,42};*/
+
+    int *p;
+    p = new int[n];
+    int *y;
+    y = new int[n];
+    int *s; 
+    s = new int[n];
+    
+    p[0] = 2;
+    p[1] = 1;
+    p[2] = 0;
+    y[0] = 3;
+    y[1] = 14;
+    y[2] = 20;
+    s[0] = 33;
+    s[1] = 54;
+    s[2] = 42;
+
     int copiaP[n];
     int copiaY[n];
     int copiaS[n];
@@ -39,8 +57,6 @@ int main()
 
     for(int i=0; i<n; i++)
     {
-        copiaP[i] = p[i];
-        copiaY[i] = y[i];
         copiaS[i] = s[i];
     }
 
@@ -48,8 +64,6 @@ int main()
     
     for(int i=0; i<n; i++)
     {
-        p[i] = copiaP[i];
-        y[i] = copiaY[i];
         s[i] = copiaS[i];
     }
 
@@ -57,8 +71,6 @@ int main()
 
     for(int i=0; i<n; i++)
     {
-        p[i] = copiaP[i];
-        y[i] = copiaY[i];
         s[i] = copiaS[i];
     }
 
@@ -66,12 +78,14 @@ int main()
 
     for(int i=0; i<n; i++)
     {
-        p[i] = copiaP[i];
-        y[i] = copiaY[i];
         s[i] = copiaS[i];
     }
 
     rrq(n,y,s);
+
+    delete p;
+    delete y;
+    delete s;
 
     return 0;
 }
